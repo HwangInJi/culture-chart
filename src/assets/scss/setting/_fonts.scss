@@ -69,3 +69,17 @@
         url("../../fonts/nanumSquareNeo-Black.woff") format("woff");
     font-display: swap;
 }
+
+@font-face {
+    font-family: "TitanOne";
+    font-style: normal;
+    src: url("../../fonts/TitanOne-Regular.ttf") format("ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "BlackHanSans";
+    font-style: normal;
+    src: url("../../fonts/BlackHanSans-Regular.ttf") format("ttf");
+    font-display: swap;
+}
