@@ -6,7 +6,10 @@
 @import "setting/reset";
 @import "setting/mixin";
 @import "setting/common";
+@import "setting/index";
 
 //section
-@import "section/header";
-@import "section/melon";
+@import "section/App";
+@import "section/ChartCard";
+// @import "section/chart";
+// @import "section/app"
