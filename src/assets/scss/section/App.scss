@@ -1,6 +1,6 @@
 .wrapper {
     margin: 0 auto 100px auto;
-    max-width: 80%;
+    max-width: 960px;
 }
 
 .chart__title {
@@ -8,6 +8,7 @@
         font-size: 100px;
         color: #0d3286;
         text-align: center;
+        /* 텍스트를 중앙 정렬 */
         font-family: "TitanOne";
         margin: 50px;
     }
@@ -54,58 +55,4 @@
 .stage {
     list-style: none;
     padding: 0;
-    max-width: 80%;
-
-    .chart__title {
-        .title__h1 {
-            font-size: 100px;
-            color: #0d3286;
-            text-align: center;
-            font-family: "TitanOne";
-            margin: 50px;
-        }
-    }
-
-    .cont__label {
-        display: flex;
-        justify-content: center;
-        gap: 60px;
-        margin: -20px;
-
-        .cont01,
-        .cont02 {
-            .cont__p {
-                color: #0d3286;
-                font-size: 20px;
-                font-family: var(--fontX);
-                font-weight: bold;
-            }
-        }
-
-        .cont01 {
-            display: flex;
-
-            .cont__select {
-                padding: 10px 10px;
-                border-radius: 10px;
-                margin: 16px 10px;
-            }
-        }
-
-        .cont02 {
-            display: flex;
-
-            .cont__input {
-                padding: 10px 10px;
-                border-radius: 10px;
-                border: 1px solid;
-                margin: 16px 10px;
-            }
-        }
-    }
-
-    .stage {
-        list-style: none;
-        padding: 0;
-    }
 }
