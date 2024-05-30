@@ -71,15 +71,8 @@
 }
 
 @font-face {
-    font-family: "TitanOne";
+    font-family: 'Cafe24Meongi-W';
+    src: url('../../fonts/Cafe24Meongi-W.woff2') format('woff2');
+    font-weight: normal;
     font-style: normal;
-    src: url("../../fonts/TitanOne-Regular.ttf") format("ttf");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "BlackHanSans";
-    font-style: normal;
-    src: url("../../fonts/BlackHanSans-Regular.ttf") format("ttf");
-    font-display: swap;
 }

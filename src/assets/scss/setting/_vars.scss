@@ -1,7 +1,7 @@
 :root {
     --fontN: "nanumSquareNeo";
     --fontX: "nexonLv1";
-    --fontT: "TitanOne";
+    --fontM: "Cafe24Meongi-W";
 
     --black: #000;
     --black100: #111;
@@ -18,7 +18,7 @@
     --white500: #fff;
 
     // 폰트 셋팅
-    font-family: var(--fontN), var(--fontX), var(--fontT);
+    font-family: var(--fontN), var(--fontX), var(--fontM);
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
