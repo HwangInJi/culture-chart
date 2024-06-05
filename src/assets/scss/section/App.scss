@@ -1,16 +1,40 @@
+@font-face {
+    font-family: 'Cafe24Meongi-W-v1.0';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Meongi-W-v1.0.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Decoshadow';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Decoshadow.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+
 .wrapper {
     margin: 0 auto 100px auto;
     max-width: 960px;
 }
 
 .chart__title {
+    padding: 20px 40px;
+    margin-top: 30px;
+
     .title__h1 {
-        font-size: 100px;
-        color: #0d3286;
+        font-size: 140px;
+        color: white;
         text-align: center;
-        /* 텍스트를 중앙 정렬 */
-        font-family: "Cafe24Meongi-W";
-        margin: 50px;
+        font-family: "Modak", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        margin: -30px;
+        background-color: #0d3286;
+        border-radius: 100px;
+        margin-top: 10px;
+
     }
 }
 
@@ -19,6 +43,7 @@
     justify-content: center;
     gap: 60px;
     margin: -20px;
+    margin-top: 45px;
 
     .cont01,
     .cont02 {

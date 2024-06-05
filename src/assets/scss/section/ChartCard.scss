@@ -1,3 +1,20 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'GmarketSansMedium';
+    font-weight: 700;
+}
+
+#root {
+    background-color: #0d3286;
+    height: 241px;
+}
+
 .scene {
     width: 260px;
     height: 400px;
@@ -33,7 +50,8 @@
     justify-content: center;
     align-items: center;
     background: none;
-    overflow: hidden; // 이 부분을 추가하여 자식 요소가 넘치지 않도록 설정
+    overflow: hidden;
+    /* 자식 요소가 넘치지 않도록 설정 */
 }
 
 .card .poster img {
@@ -47,6 +65,8 @@
     border: 1px solid #B8B5B5;
     font-size: 1rem;
     padding: 10px;
+    overflow: hidden;
+    /* 자식 요소가 넘치지 않도록 설정 */
 }
 
 .card::after {
@@ -76,7 +96,8 @@
 
 .card .info header h1 {
     margin: 0 0 2px;
-    font-size: 1.4em;
+    font-size: 2em;
+    color: #0d3286;
 }
 
 .card .info header .value {
@@ -90,7 +111,11 @@
     font-weight: 700;
     color: #000;
     line-height: 1.4em;
-    border-top: 10px solid #0d3286;
+    border-top: 5px solid #0d3286;
+    word-wrap: break-word;
+    /* 줄바꿈 설정 */
+    word-break: break-word;
+    /* 줄바꿈 설정 */
 }
 
 .card .poster,

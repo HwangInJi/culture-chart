@@ -2,11 +2,24 @@ import React, { useEffect, useState } from 'react';
 import './assets/scss/section/App.scss';  // 변경된 부분
 import ChartCard from './ChartCard';
 
+// 어제 날짜를 'YYYY-MM-DD' 형식으로 반환하는 함수
+const getYesterdayDate = () => {
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+
+  const year = yesterday.getFullYear();
+  const month = String(yesterday.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1 필요
+  const day = String(yesterday.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+};
+
 const App = () => {
   const [chartData, setChartData] = useState([]);
   const [chartSubName, setChartSubName] = useState('melonconcert');
   const [chartName, setChartName] = useState('pychart_M_concert10');
-  const [selectedDate, setSelectedDate] = useState('2024-05-03');
+  const [selectedDate, setSelectedDate] = useState(getYesterdayDate());  // 수정된 부분
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
