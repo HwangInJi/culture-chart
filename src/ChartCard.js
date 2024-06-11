@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { GiCancel } from 'react-icons/gi';
 import './assets/scss/section/ChartCard.scss';
 
-const Chart = ({ rank, title, Venue, ImageURL }) => {
+const Chart = ({ rank, title, Venue, ImageURL, site }) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const formattedRank = !isNaN(rank) ? `${rank}위` : rank;
@@ -14,34 +15,45 @@ const Chart = ({ rank, title, Venue, ImageURL }) => {
         setModalOpen(false);
     };
 
+    const handleSiteClick = () => {
+        window.open(site);
+    };
+
     return (
-        <div>
-            <div className={`card ${modalOpen ? 'modal-open' : ''}`} onClick={openModal}>
-                <div className="poster">
-                    <img src={ImageURL} alt={title} />
-                </div>
-                <div className="info">
-                    <header>
-                        <h1>🏆 {formattedRank}</h1>
-                        <span className="value">{title}</span>
-                    </header>
-                    <p>{Venue}</p>
-                </div>
-            </div>
-            {modalOpen && (
-                <div className="modal">
-                    <div className="modal_left">
+        <>
+            <li className="scene">
+                <div className={`card ${modalOpen ? 'modal-open' : ''}`} onClick={openModal}>
+                    <div className="poster">
                         <img src={ImageURL} alt={title} />
                     </div>
-                    <div className="modal_right">
-                        <h2>{formattedRank}</h2>
-                        <h3>{title}</h3>
+                    <div className="info">
+                        <header>
+                            <h1>🏆 {formattedRank}</h1>
+                            <span className="value">{title}</span>
+                        </header>
                         <p>{Venue}</p>
-                        <button onClick={closeModal}>닫기</button>
                     </div>
                 </div>
-            )}
-        </div>
+            </li>
+            <div>
+                {modalOpen && (
+                    <div className="modal">
+                        <div className="modal_left">
+                            <img src={ImageURL} alt={title} />
+                            <div className="modal_right">
+                                <div className="modal_content">
+                                    <h2>{formattedRank}</h2>
+                                    <h3>{title}</h3>
+                                    <p>{Venue}</p>
+                                </div>
+                            </div>
+                            <button className="closeButton" onClick={closeModal}><GiCancel /></button>
+                        </div>
+                        <button className="linkButton" onClick={handleSiteClick}>예매하기</button>
+                    </div>
+                )}
+            </div>
+        </>
     );
 };
 

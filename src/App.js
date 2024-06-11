@@ -139,6 +139,7 @@ const App = () => {
               title={data.title}
               Venue={data.Venue}
               ImageURL={data.ImageURL}
+              site={data.site}
             />
           ))}
         </ul>

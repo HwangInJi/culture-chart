@@ -24,13 +24,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 70px;
+    gap: 20px;
     padding: 0;
     list-style: none;
 }
 
 .scene {
-    width: 260px;
+    width: 240px;
     height: 400px;
     margin: 20px;
     perspective: 1000px;
@@ -115,7 +115,6 @@
     padding: 0.5rem;
     border-radius: 0.5rem;
     margin-bottom: 1.2rem;
-    margin-top: 1rem;
     padding-left: 20px;
 }
 
@@ -172,62 +171,113 @@
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    /* 모달의 z-index 값을 적절히 조정합니다. */
+    overflow: auto;
 }
 
 .modal_left {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal_right {
-    width: 40%;
-    height: 50%;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.5rem;
+    position: relative;
+    /* 추가 */
 }
 
 .modal_left img {
+    width: 500px;
+    height: 700px;
+    object-fit: cover;
     max-width: 100%;
     max-height: 100%;
+    position: relative;
+}
+
+.modal_left .closeButton {
+    position: fixed;
+    top: 9px;
+    right: 29px;
+    background-color: transparent;
+    border: none;
+
+    svg {
+        width: 300%;
+        height: 300%;
+        color: white;
+    }
+}
+
+.linkButton {
+    background-color: #0d3286;
+    color: #fff;
+    position: absolute;
+    bottom: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 1.5rem;
+    border: 1px solid #5a73ad;
 }
 
 .modal_right {
-    background-color: #f7f9ff;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.71);
     padding: 20px;
     box-sizing: border-box;
-    color: #000;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 388px);
+    transform: translate(-46.1%, -51.4%);
+    transition: opacity 0.5s ease-in-out, left 0.5s ease-in-out;
+    opacity: 0;
+    margin-top: 12.5rem;
 }
 
-.modal_right h2 {
+
+.modal_right .modal_content {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.modal_left img:hover+.modal_right {
+    right: 0;
+    /* 마우스가 이미지 위에 올라가면 modal_right가 오른쪽에서 나타납니다. */
+    opacity: 1;
+}
+
+.modal_right h2,
+.modal_right h3 {
     margin-top: 0;
+    text-align: center;
 }
 
 .modal_right p {
     margin: 10px 0;
+    text-align: center;
 }
 
-.modal_right button {
-    padding: 5px 15px;
-    background-color: #0d3286;
-    color: #fff;
+@media (max-width: 1200px) {
+    .scene {
+        width: 30%;
+    }
+}
+
+@media (max-width: 960px) {
+    .scene {
+        width: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    .scene {
+        width: 45%;
+    }
 }
 
 @media (max-width: 480px) {
     .scene {
         width: 90%;
     }
-
-    .modal_left,
-    .modal_right {
-        width: 100%;
-    }
-}
-
-.scene.modal-open .card {
-    transform: none;
 }
