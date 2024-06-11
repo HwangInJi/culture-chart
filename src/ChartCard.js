@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './assets/scss/section/ChartCard.scss';
 
 const Chart = ({ rank, title, Venue, ImageURL }) => {
-    // rank 값이 숫자인지 확인하고, 숫자일 경우 "1위" 형식으로 변환
+    const [modalOpen, setModalOpen] = useState(false);
+
     const formattedRank = !isNaN(rank) ? `${rank}위` : rank;
 
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
     return (
-        <li className="scene">
-            <div className="card">
+        <div>
+            <div className={`card ${modalOpen ? 'modal-open' : ''}`} onClick={openModal}>
                 <div className="poster">
                     <img src={ImageURL} alt={title} />
                 </div>
@@ -19,7 +28,20 @@ const Chart = ({ rank, title, Venue, ImageURL }) => {
                     <p>{Venue}</p>
                 </div>
             </div>
-        </li>
+            {modalOpen && (
+                <div className="modal">
+                    <div className="modal_left">
+                        <img src={ImageURL} alt={title} />
+                    </div>
+                    <div className="modal_right">
+                        <h2>{formattedRank}</h2>
+                        <h3>{title}</h3>
+                        <p>{Venue}</p>
+                        <button onClick={closeModal}>닫기</button>
+                    </div>
+                </div>
+            )}
+        </div>
     );
 };
 
