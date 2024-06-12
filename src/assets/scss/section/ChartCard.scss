@@ -247,13 +247,23 @@
     opacity: 1;
 }
 
-.modal_right h2,
-.modal_right h3 {
-    margin-top: 0;
+.modal_right .modal__rank,
+.modal_right .modal__title,
+.modal_right .modal__date {
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.modal_right p {
+.modal_right .modal__change{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #698cdd;
+}
+
+.modal_right .modal__venue {
     margin: 10px 0;
     text-align: center;
 }

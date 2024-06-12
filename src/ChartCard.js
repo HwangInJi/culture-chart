@@ -7,6 +7,24 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
 
     const formattedRank = !isNaN(rank) ? `${rank}위` : rank;
 
+    const formattedChange = () => {
+        if (change && typeof change === 'string') {
+            if (change.includes('상승')) {
+                const steps = change.match(/\d+/)[0];  // 숫자 추출
+                return `${steps} ▲`;
+            } else if (change.includes('하락')) {
+                const steps = change.match(/\d+/)[0];  // 숫자 추출
+                return `${steps} ▼`;
+            } else if (change.includes('변동 없음')) {
+                return `-`;
+            } else {
+                return change;  // 변화 텍스트가 예상치 못한 형태인 경우 원본 텍스트 반환
+            }
+        } else {
+            return '-';
+        }
+    };
+
     const openModal = () => {
         setModalOpen(true);
     };
@@ -16,7 +34,7 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
     };
 
     const handleSiteClick = () => {
-        window.open(site);
+        window.open(site, '_blank');
     };
 
     return (
@@ -35,26 +53,24 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
                     </div>
                 </div>
             </li>
-            <div>
-                {modalOpen && (
-                    <div className="modal">
-                        <div className="modal_left">
-                            <img src={ImageURL} alt={title} />
-                            <div className="modal_right">
-                                <div className="modal_content">
-                                    <h2>{formattedRank}</h2>
-                                    <h3>{title}</h3>
-                                    <h4>{change}</h4>
-                                    <span>{date}</span>
-                                    <p>{Venue}</p>
-                                </div>
+            {modalOpen && (
+                <div className="modal">
+                    <div className="modal_left">
+                        <img src={ImageURL} alt={title} />
+                        <div className="modal_right">
+                            <div className="modal_content">
+                                <h2 className='modal__rank'>{formattedRank}</h2>
+                                <h3 className='modal__title'>{title}</h3>
+                                <h4 className='modal__change'>{formattedChange()}</h4>
+                                <span className='modal__date'>{date}</span>
+                                <p className='modal__venue'>{Venue}</p>
                             </div>
-                            <button className="closeButton" onClick={closeModal}><GiCancel /></button>
                         </div>
-                        <button className="linkButton" onClick={handleSiteClick}>예매하기</button>
+                        <button className="closeButton" onClick={closeModal}><GiCancel /></button>
                     </div>
-                )}
-            </div>
+                    <button className="linkButton" onClick={handleSiteClick}>예매하기</button>
+                </div>
+            )}
         </>
     );
 };
