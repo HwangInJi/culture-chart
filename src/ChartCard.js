@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { GiCancel } from 'react-icons/gi';
 import './assets/scss/section/ChartCard.scss';
 
-const Chart = ({ rank, title, Venue, ImageURL, site }) => {
+const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     const formattedRank = !isNaN(rank) ? `${rank}위` : rank;
@@ -44,6 +44,8 @@ const Chart = ({ rank, title, Venue, ImageURL, site }) => {
                                 <div className="modal_content">
                                     <h2>{formattedRank}</h2>
                                     <h3>{title}</h3>
+                                    <h4>{change}</h4>
+                                    <span>{date}</span>
                                     <p>{Venue}</p>
                                 </div>
                             </div>

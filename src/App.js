@@ -136,10 +136,12 @@ const App = () => {
             <ChartCard
               key={index}
               rank={data.rank}
+              change={data.change}
               title={data.title}
               Venue={data.Venue}
               ImageURL={data.ImageURL}
               site={data.site}
+              date={data.date}
             />
           ))}
         </ul>
