@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './assets/scss/section/App.scss';
+import './assets/scss/setting/loading.scss';  // 경로 수정
 import ChartCard from './ChartCard';
 
 // 어제 날짜를 'YYYY-MM-DD' 형식으로 반환하는 함수
@@ -98,56 +99,63 @@ const App = () => {
   };
 
   return (
-<>
-<div className='chart__title'>
-  <h1 className='title__h1'>CHART</h1>
-</div>
-<div className="wrapper">
-      <div className='cont__label'>
-        <label className='cont01'>
-          <p className='cont__p'>Site 👉</p>
-          <select className='cont__select' value={chartSubName} onChange={handleSubNameChange}>
-            <option value="melonconcert">멜론 콘서트</option>
-            <option value="melonexhibiton">멜론 전시</option>
-            <option value="melonmusical">멜론 뮤지컬</option>
-
-            <option value="ticketconcert">티켓링크 콘서트</option>
-            <option value="ticketexhibiton">티켓링크 전시</option>
-            <option value="ticketmusical">티켓링크 뮤지컬</option>
-
-            <option value="yes24concert">예스24 콘서트</option>
-            <option value="yes24exhibiton">예스24 전시</option>
-            <option value="yes24musical">예스24 뮤지컬</option>
-          </select>
-        </label>
-        <label className='cont02'>
-          <p className='cont__p'>Date 👉</p>
-          <input className='cont__input' type="date" value={selectedDate} onChange={handleDateChange} />
-        </label>
+    <>
+      <div className='chart__title'>
+        <h1 className='title__h1'>CHART</h1>
       </div>
+      <div className="wrapper">
+        <div className='cont__label'>
+          <label className='cont01'>
+            <p className='cont__p'>Site 👉</p>
+            <select className='cont__select' value={chartSubName} onChange={handleSubNameChange}>
+              <option value="melonconcert">멜론 콘서트</option>
+              <option value="melonexhibiton">멜론 전시</option>
+              <option value="melonmusical">멜론 뮤지컬</option>
 
-      {loading ? (
-        <p>로딩 중...</p>
-      ) : error ? (
-        <p>{error}</p>
-      ) : (
-        <ul className="stage">
-          {chartData.map((data, index) => (
-            <ChartCard
-              key={index}
-              rank={data.rank}
-              change={data.change}
-              title={data.title}
-              Venue={data.Venue}
-              ImageURL={data.ImageURL}
-              site={data.site}
-              date={data.date}
-            />
-          ))}
-        </ul>
-      )}
-    </div>
-</>
+              <option value="ticketconcert">티켓링크 콘서트</option>
+              <option value="ticketexhibiton">티켓링크 전시</option>
+              <option value="ticketmusical">티켓링크 뮤지컬</option>
+
+              <option value="yes24concert">예스24 콘서트</option>
+              <option value="yes24exhibiton">예스24 전시</option>
+              <option value="yes24musical">예스24 뮤지컬</option>
+            </select>
+          </label>
+          <label className='cont02'>
+            <p className='cont__p'>Date 👉</p>
+            <input className='cont__input' type="date" value={selectedDate} onChange={handleDateChange} />
+          </label>
+        </div>
+
+        {loading ? (
+          <div className="center-container">
+            <div className="graph">
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+            </div>
+          </div>
+        ) : error ? (
+          <p>{error}</p>
+        ) : (
+          <ul className="stage">
+            {chartData.map((data, index) => (
+              <ChartCard
+                key={index}
+                rank={data.rank}
+                change={data.change}
+                title={data.title}
+                Venue={data.Venue}
+                ImageURL={data.ImageURL}
+                site={data.site}
+                date={data.date}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
+    </>
   );
 };
 

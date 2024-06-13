@@ -1,0 +1,77 @@
+/* 그래프를 중앙에 배치하기 위한 컨테이너 */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 뷰포트 높이를 100%로 설정하여 세로로 중앙에 배치 */
+  }
+  
+  /* 그래프 스타일 */
+  .graph {
+    height: 200px;
+    width: 600px;
+    margin: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
+  .bar {
+    height: 0px;
+    width: 64px;
+    margin: 8px;
+    border-radius: 4px;
+    align-self: flex-end;
+    background: #0d3186c2;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+  }
+  
+  .bar:nth-child(1) {
+    max-height: 60%;
+    animation-name: grow-shrink-1;
+  }
+  
+  .bar:nth-child(2) {
+    max-height: 20%;
+    animation-name: grow-shrink-2;
+  }
+  
+  .bar:nth-child(3) {
+    animation-name: grow-shrink-3;
+  }
+  
+  .bar:nth-child(4) {
+    max-height: 80%;
+    animation-name: grow-shrink-4;
+  }
+  
+  @keyframes grow-shrink-1 {
+    0% {height: 0}
+    20% {height: 100%}
+    60% {height: 100%}
+  }
+  
+  @keyframes grow-shrink-2 {
+    0% {height: 0}
+    40% {height: 100%}
+    70% {height: 100%}
+  }
+  
+  @keyframes grow-shrink-3 {
+    0% {height: 0}
+    60% {height: 100%}
+    80% {height: 100%}
+  }
+  
+  @keyframes grow-shrink-4 {
+    0% {height: 0}
+    80% {height: 100%}
+    90% {height: 100%}
+  }
+  
+  @keyframes pulse {
+    0% { background-position: 0% 0% }
+    100% { background-position: -135% 0% }
+  }
