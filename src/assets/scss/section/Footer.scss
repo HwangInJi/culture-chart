@@ -1,0 +1,53 @@
+footer {
+    background-color: #0d3286;
+    height: 170px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'GmarketSansMedium', sans-serif;
+    font-weight: 700;
+    line-height: 2.8;
+    display: flex;
+}
+
+.footer-content{
+    width: 100%;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}
+
+.footer-content a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+.select-container {
+    margin-top: 3rem;
+    margin-left: -10rem;
+    padding: 13px 20px;
+}
+
+.select-container select {
+    background-color: #fff;
+    color: #0d3286;
+    text-align: center;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'GmarketSansMedium', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.select-container select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(13, 50, 134, 0.5);
+}

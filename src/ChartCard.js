@@ -55,25 +55,10 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
             </li>
             {modalOpen && (
                 <div className="modal">
-
-                    <aside class="profile-card">
-                        <img src={ImageURL} alt={title} />
-                    {/* <div class="profile-bio">
-                        <div className="modal_right">
-                            <div className="modal_content">
-                                <h2 className='modal__rank'>{formattedRank}</h2>
-                                <h3 className='modal__title'>{title}</h3>
-                                <h4 className='modal__change'>{formattedChange()}</h4>
-                                <span className='modal__date'>{date}</span>
-                                <p className='modal__venue'>{Venue}</p>
-                            </div>
+                    <div className="modal_left">
+                        <div className="card__effect">
+                            <img src={ImageURL} alt={title} />
                         </div>
-                    </div>
-                    <button className="closeButton" onClick={closeModal}><GiCancel /></button>  */}
-                    </aside>
-
-                    {/* <div className="modal_left">
-                        <img src={ImageURL} alt={title} />
                         <div className="modal_right">
                             <div className="modal_content">
                                 <h2 className='modal__rank'>{formattedRank}</h2>
@@ -84,7 +69,7 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
                             </div>
                         </div>
                         <button className="closeButton" onClick={closeModal}><GiCancel /></button>
-                    </div> */}
+                    </div>                   
                     <button className="linkButton" onClick={handleSiteClick}>예매하기</button>
                 </div>
             )}

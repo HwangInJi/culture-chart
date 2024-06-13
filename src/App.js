@@ -98,11 +98,11 @@ const App = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className='chart__title'>
-        <h1 className='title__h1'>CHART</h1>
-      </div>
-
+<>
+<div className='chart__title'>
+  <h1 className='title__h1'>CHART</h1>
+</div>
+<div className="wrapper">
       <div className='cont__label'>
         <label className='cont01'>
           <p className='cont__p'>Site 👉</p>
@@ -147,6 +147,7 @@ const App = () => {
         </ul>
       )}
     </div>
+</>
   );
 };
 

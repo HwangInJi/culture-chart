@@ -14,16 +14,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
 
-#root {
-    background-color: #0d3286;
-    height: 241px;
-}
-
-.wrapper {
-    margin: 0 auto 100px auto;
-    max-width: 1280px;
-}
-
 .chart__title {
     padding: 20px 40px;
 
@@ -38,6 +28,11 @@
         margin-top: 10px;
 
     }
+}
+
+.wrapper {
+    margin: 0 auto 100px auto;
+    max-width: 1280px;
 }
 
 .cont__label {
