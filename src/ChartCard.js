@@ -17,11 +17,29 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
                 return `${steps} ▼`;
             } else if (change.includes('변동 없음')) {
                 return `-`;
+            } else if (change.includes('NEW')) {
+                return 'NEW';
             } else {
                 return change;  // 변화 텍스트가 예상치 못한 형태인 경우 원본 텍스트 반환
             }
         } else {
             return '-';
+        }
+    };
+
+    const getChangeClass = () => {
+        if (change && typeof change === 'string') {
+            if (change.includes('상승')) {
+                return 'up';
+            } else if (change.includes('변동 없음')) {
+                return 'no-change';
+            } else if (change.includes('NEW')) {
+                return 'new';
+            } else {
+                return '';
+            }
+        } else {
+            return '';
         }
     };
 
@@ -63,7 +81,7 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
                             <div className="modal_content">
                                 <h2 className='modal__rank'>{formattedRank}</h2>
                                 <h3 className='modal__title'>{title}</h3>
-                                <h4 className='modal__change'>{formattedChange()}</h4>
+                                <h4 className={`modal__change ${getChangeClass()}`}>{formattedChange()}</h4>
                                 <span className='modal__date'>{date}</span>
                                 <p className='modal__venue'>{Venue}</p>
                             </div>

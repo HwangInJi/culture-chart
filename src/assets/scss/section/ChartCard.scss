@@ -271,6 +271,18 @@
     color: #698cdd;
 }
 
+.modal_left .modal_right .modal__change.up {
+    color: red;
+}
+
+.modal_left .modal_right .modal__change.no-change {
+    color: gray;
+}
+
+.modal_left .modal_right .modal__change.new {
+    color: yellow;
+}
+
 .modal_left .modal_right .modal__venue {
     margin: 10px 0;
     text-align: center;
@@ -280,11 +292,56 @@
     .scene {
         width: 30%;
     }
+
+    .modal_left .card__effect {
+        width: 400px;
+        height: 600px;
+    }
+
+    .linkButton {
+        width: 400px;
+        font-size: 30px;
+        padding: 12px 18px;
+        bottom: 6rem;
+    }
+
+    .modal_left .modal_right{
+        width: 220px;
+        left: 55%;
+        padding: 7px;
+    }
+
+    .modal_left .modal_right .modal__rank, .modal_left .modal_right .modal__title, .modal_left .modal_right .modal__date {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 960px) {
     .scene {
         width: 30%;
+    }
+
+    .modal_left .card__effect {
+        width: 320px;
+        height: 470px;
+    }
+
+    .linkButton {
+        width: 350px;
+        font-size: 26px;
+        padding: 10px 16px;
+        bottom: 11rem;
+    }
+
+    .modal_left .modal_right {
+        width: 220px;
+        top: 12rem;
+        left: 43%;
+        padding: 7px;
     }
 }
 
@@ -292,11 +349,41 @@
     .scene {
         width: 45%;
     }
+
+    .modal_left .card__effect {
+        width: 300px;
+        height: 450px;
+    }
+
+    .linkButton {
+        width: 300px;
+        font-size: 22px;
+        padding: 8px 14px;
+
+    }
+
+    .modal_left .modal_right {
+        width: 220px;
+        top: 12rem;
+        left: 43%;
+        padding: 7px;
+    }
 }
 
 @media (max-width: 480px) {
     .scene {
         width: 90%;
+    }
+
+    .modal_left .card__effect {
+        width: 240px;
+        height: 360px;
+    }
+
+    .linkButton {
+        width: 240px;
+        font-size: 18px;
+        padding: 6px 12px;
     }
 }
 

@@ -38,7 +38,7 @@ const App = () => {
         setError(null);
       } catch (error) {
         console.error('Error fetching the data', error);
-        setError('데이터를 가져오는 데 오류가 발생했습니다.');
+        setError('아직 데이터 수집 시간이 아닙니다. 나중에 다시 시도해주세요!');
         setChartData([]);  // 데이터 초기화
       } finally {
         setLoading(false);
