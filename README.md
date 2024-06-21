@@ -37,7 +37,7 @@
 - Select옵션을 통해 각 사이트별 콘서트, 전시, 뮤지컬을 선택할 수 있고 오른쪽 Calendar에서 일자를 선택하면 해당 일자의 데이터가 불러와지도록 구현
 <br>
 
-![2](https://github.com/HwangInJi/cultureChart/assets/163365140/5b367f44-a1cd-47a8-bdba-c66c729ffcde)
+![image](https://github.com/HwangInJi/cultureChart/assets/163365140/478e68ec-6068-4f9f-b8dc-f5ef45187877)
 - 포스터 이미지를 누르면 팝업 형태가 뜨면서 순위의 변동 유무까지 포함된 정보창이 나오고, 예매하기 링크를 통해 사이트로 이동되도록 설정
   <br><br>
   
