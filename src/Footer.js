@@ -13,7 +13,7 @@ const Footer = () => {
         <footer>
             <div className="footer-content">
                 <p>&copy; 2024 Culture Chart. All rights reserved.</p>
-                <p>All images and content are copyright to their respective owners.</p>
+                <p>모든 이미지와 콘텐츠의 저작권은 각 사이트에 있으며, 포트폴리오 용도로 만들었음을 밝힙니다.</p>
                 <p>
                     <a href="/privacy-policy">Project2</a> |
                     <a href="/terms-of-service"> Team member InJi & HyeJi</a> |

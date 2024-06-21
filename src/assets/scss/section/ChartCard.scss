@@ -11,8 +11,7 @@
 }
 
 #root {
-    background-color: #0d3286;
-    height: 241px;
+    background-color: #fff;
     width: 100%;
 }
 
@@ -166,126 +165,162 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0 0 0 / 93%);
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.93);
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 9999;
-    overflow: auto;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+}
+
+.modal_container {
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    width: 800px;  /* 고정된 너비 */
+    height: 600px;  /* 고정된 높이 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    overflow: hidden;
 }
 
 .modal_left {
+    width: 50%;
     position: relative;
+    background: #2D60ED;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5rem;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
-.modal_left .card__effect {
-    width: 500px;
-    height: 700px;
-    object-fit: cover;
-    max-width: 100%;
-    max-height: 100%;
-    position: relative;
-}
-
-.modal_left .card__effect img {
+.modal_left img {
     width: 100%;
     height: 100%;
+    object-fit: contain;  /* 이미지 비율 유지 */
+    border-radius: 0;
 }
 
-.modal_left .closeButton {
-    position: fixed;
-    top: 9px;
-    right: 29px;
+.modal_right {
+    width: 50%;
+    padding: 2rem;
+    background-color: #fff;
+    color: #000;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 0.18em dashed #fff;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.modal_right::before,
+.modal_right::after {
+    content: '';
+    position: absolute;
+    width: 0.9em;
+    height: 0.9em;
+    background: #fff;
+    border-radius: 50%;
+    left: -0.5em;
+}
+
+.modal_right::before {
+    top: -0.4em;
+}
+
+.modal_right::after {
+    bottom: -0.4em;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     background-color: transparent;
     border: none;
+    cursor: pointer;
+    z-index: 1001;
 
     svg {
-        width: 300%;
-        height: 300%;
-        color: white;
+        width: 2em;
+        height: 2em;
+        color: black;
     }
 }
 
 .linkButton {
-    width: 500px;
     background-color: #0d3286;
     color: #fff;
-    position: absolute;
-    bottom: 3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 34px;
-    padding: 15px 20px;
-    border-radius: 10rem;
-    border: 1px solid #0d3286;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    border: none;
+
+    &:hover {
+        background-color: #0056b3;
+    }
 }
 
-.modal_left .modal_right {
-    width: 300px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.71);
-    padding: 20px;
-    box-sizing: border-box;
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(89%, -59%);
-    margin-top: 12.5rem;
-    z-index: 10;
-}
-
-.modal_left:hover .modal_right {
-    // left: 50%;
-    opacity: 1;
-}
-
-.modal_left .modal_right .modal_content {
+.modal_content {
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
 }
 
-.modal_left .modal_right .modal__rank,
-.modal_left .modal_right .modal__title,
-.modal_left .modal_right .modal__date {
+.modal__rank {
+    font-size: 2rem;
+    color: #2D60ED;
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 1rem;
 }
 
-.modal_left .modal_right .modal__change {
+.modal__title,
+.modal__date,
+.modal__venue {
+    text-align: left;
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: #698cdd;
+    margin: 0.5rem 0;
 }
 
-.modal_left .modal_right .modal__change.up {
+.modal__change {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.modal__change.up {
     color: red;
 }
 
-.modal_left .modal_right .modal__change.no-change {
+.modal__change.down {
+    color: blue;
+}
+
+.modal__change.no-change {
     color: gray;
 }
 
-.modal_left .modal_right .modal__change.new {
+.modal__change.new {
     color: yellow;
 }
 
-.modal_left .modal_right .modal__venue {
+.modal__venue {
     margin: 10px 0;
-    text-align: center;
+    text-align: left;
 }
 
 @media (max-width: 1200px) {
@@ -293,30 +328,24 @@
         width: 30%;
     }
 
-    .modal_left .card__effect {
+    .card__effect {
         width: 400px;
         height: 600px;
     }
 
     .linkButton {
         width: 400px;
-        font-size: 30px;
-        padding: 12px 18px;
-        bottom: 6rem;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
     }
 
-    .modal_left .modal_right{
-        width: 220px;
-        left: 55%;
-        padding: 7px;
+    .modal_right {
+        width: 500px;
+        padding: 1rem;
     }
 
-    .modal_left .modal_right .modal__rank, .modal_left .modal_right .modal__title, .modal_left .modal_right .modal__date {
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
+    .modal_content {
+        font-size: 0.875rem;
     }
 }
 
@@ -325,23 +354,24 @@
         width: 30%;
     }
 
-    .modal_left .card__effect {
+    .card__effect {
         width: 320px;
         height: 470px;
     }
 
     .linkButton {
         width: 350px;
-        font-size: 26px;
-        padding: 10px 16px;
-        bottom: 11rem;
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
     }
 
-    .modal_left .modal_right {
-        width: 220px;
-        top: 12rem;
-        left: 43%;
-        padding: 7px;
+    .modal_right {
+        width: 400px;
+        padding: 1rem;
+    }
+
+    .modal_content {
+        font-size: 0.875rem;
     }
 }
 
@@ -350,23 +380,24 @@
         width: 45%;
     }
 
-    .modal_left .card__effect {
+    .card__effect {
         width: 300px;
         height: 450px;
     }
 
     .linkButton {
         width: 300px;
-        font-size: 22px;
-        padding: 8px 14px;
-
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
     }
 
-    .modal_left .modal_right {
-        width: 220px;
-        top: 12rem;
-        left: 43%;
-        padding: 7px;
+    .modal_right {
+        width: 300px;
+        padding: 0.5rem;
+    }
+
+    .modal_content {
+        font-size: 0.75rem;
     }
 }
 
@@ -375,26 +406,35 @@
         width: 90%;
     }
 
-    .modal_left .card__effect {
+    .card__effect {
         width: 240px;
         height: 360px;
     }
 
     .linkButton {
         width: 240px;
-        font-size: 18px;
-        padding: 6px 12px;
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .modal_right {
+        width: 260px;
+        padding: 0.5rem;
+    }
+
+    .modal_content {
+        font-size: 0.75rem;
     }
 }
 
-// card효과
+/* Card Effect */
 @property --rotate {
     syntax: "<angle>";
     initial-value: 132deg;
     inherits: false;
-  }
+}
   
-  body {
+body {
     min-height: 100vh;
     background: #fff;
     display: flex;
@@ -402,27 +442,9 @@
     flex-direction: column;
     padding-bottom: 2rem;
     box-sizing: border-box;
-  }
+}
   
-  
-  .card__effect {
-    background: #191c29;
-    width: var(--card-width);
-    height: var(--card-height);
-    padding: 3px;
-    position: relative;
-    border-radius: 6px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    font-size: 1.5em;
-    color: rgb(88 199 250 / 0%);
-    cursor: pointer;
-    font-family: cursive;
-  }
-  
-  .card__effect::before {
+.card__effect::before {
     content: "";
     width: 104%;
     height: 102%;
@@ -430,14 +452,14 @@
     background-image: linear-gradient(
       var(--rotate)
       , #5ddcff, #3c67e3 43%, #4e00c2);
-      position: absolute;
-      z-index: -1;
-      top: -1%;
-      left: -2%;
-      animation: spin 2.5s linear infinite;
-  }
+    position: absolute;
+    z-index: -1;
+    top: -1%;
+    left: -2%;
+    animation: spin 2.5s linear infinite;
+}
   
-  .card__effect::after {
+.card__effect::after {
     position: absolute;
     content: "";
     top: calc(var(--card-height) / 6);
@@ -452,16 +474,16 @@
     background-image: linear-gradient(
       var(--rotate)
       , #5ddcff, #3c67e3 43%, #4e00c2);
-      opacity: 1;
+    opacity: 1;
     transition: opacity .5s;
     animation: spin 2.5s linear infinite;
-  }
+}
   
-  @keyframes spin {
+@keyframes spin {
     0% {
-      --rotate: 0deg;
+        --rotate: 0deg;
     }
     100% {
-      --rotate: 360deg;
+        --rotate: 360deg;
     }
-  }
+}

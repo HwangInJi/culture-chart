@@ -16,6 +16,7 @@
 
 .chart__title {
     padding: 20px 40px;
+    background-color: #0d3286;
 
     .title__h1 {
         font-size: 140px;
@@ -26,7 +27,6 @@
         font-style: normal;
         margin: -30px;
         margin-top: 10px;
-
     }
 }
 
@@ -38,7 +38,8 @@
 .cont__label {
     display: flex;
     justify-content: center;
-    gap: 60px;
+    align-items: center;
+    gap: 40px; /* 간격을 줄임 */
     margin: -20px;
     margin-top: 45px;
 
@@ -54,22 +55,24 @@
 
     .cont01 {
         display: flex;
+        align-items: center;
 
         .cont__select {
             padding: 10px 10px;
             border-radius: 10px;
-            margin: 16px 10px;
+            margin: 0 10px;
         }
     }
 
     .cont02 {
         display: flex;
+        align-items: center;
 
         .cont__input {
             padding: 10px 10px;
             border-radius: 10px;
             border: 1px solid;
-            margin: 16px 10px;
+            margin: 0 10px;
         }
     }
 }
@@ -93,6 +96,7 @@
     .cont__label {
         margin-top: 80px;
         /* 더 많은 margin-top */
+        justify-content: center;
         gap: 30px;
         /* 줄어든 gap */
     }
@@ -106,7 +110,7 @@
         .cont__select,
         .cont__input {
             padding: 8px;
-            margin: 12px 5px;
+            margin: 0 5px;
         }
     }
 }
@@ -126,6 +130,7 @@
     .cont__label {
         margin-top: 45px;
         /* 더 많은 margin-top */
+        justify-content: center;
         gap: 20px;
         /* 줄어든 gap */
     }
@@ -139,7 +144,7 @@
         .cont__select,
         .cont__input {
             padding: 6px;
-            margin: 10px 5px;
+            margin: 0 5px;
         }
     }
 }
@@ -157,6 +162,7 @@
 
     .cont__label {
         margin-top: 45px;
+        justify-content: center;
         gap: 10px;
         /* 줄어든 gap */
     }
@@ -170,7 +176,7 @@
         .cont__select,
         .cont__input {
             padding: 5px;
-            margin: 8px 3px;
+            margin: 0 3px;
         }
     }
 }
@@ -189,6 +195,7 @@
 
     .cont__label {
         margin-top: 30px;
+        justify-content: center;
         /* margin-top을 더 줍니다. */
         gap: 5px;
         /* 줄어든 gap */
@@ -203,7 +210,7 @@
         .cont__select,
         .cont__input {
             padding: 4px;
-            margin: 6px 2px;
+            margin: 0 2px;
         }
     }
 }

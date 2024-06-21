@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GiCancel } from 'react-icons/gi';
+import { IoCloseCircleSharp } from "react-icons/io5";
 import './assets/scss/section/ChartCard.scss';
 
 const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
@@ -31,6 +31,8 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
         if (change && typeof change === 'string') {
             if (change.includes('상승')) {
                 return 'up';
+            } else if (change.includes('하락')) {
+                return 'down';
             } else if (change.includes('변동 없음')) {
                 return 'no-change';
             } else if (change.includes('NEW')) {
@@ -52,7 +54,11 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
     };
 
     const handleSiteClick = () => {
-        window.open(site, '_blank');
+        if (site) {
+            window.open(site, '_blank');
+        } else {
+            console.error("Site URL is not provided");
+        }
     };
 
     return (
@@ -73,11 +79,12 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
             </li>
             {modalOpen && (
                 <div className="modal">
-                    <div className="modal_left">
-                        <div className="card__effect">
+                    <div className="modal_container">
+                        <div className="modal_left">
                             <img src={ImageURL} alt={title} />
                         </div>
                         <div className="modal_right">
+                            <button className="closeButton" onClick={closeModal}><IoCloseCircleSharp /></button>
                             <div className="modal_content">
                                 <h2 className='modal__rank'>{formattedRank}</h2>
                                 <h3 className='modal__title'>{title}</h3>
@@ -85,10 +92,10 @@ const Chart = ({ rank, change, title, Venue, ImageURL, site, date }) => {
                                 <span className='modal__date'>{date}</span>
                                 <p className='modal__venue'>{Venue}</p>
                             </div>
+                            <div className="barcode"></div>
+                            <button className="linkButton" onClick={handleSiteClick}>예매하기</button>
                         </div>
-                        <button className="closeButton" onClick={closeModal}><GiCancel /></button>
-                    </div>                   
-                    <button className="linkButton" onClick={handleSiteClick}>예매하기</button>
+                    </div>
                 </div>
             )}
         </>
